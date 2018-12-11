@@ -40,6 +40,7 @@ fn.prototype = {
       successWrapper(this.successFn));
 
     request.on('error', function(err) {
+      console.log(this.errorFn);
       this.errorFn(err);
     });
 

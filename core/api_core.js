@@ -113,6 +113,8 @@ core.prototype = {
   },
 
   stream: function(path, opts) {
+    console.log("connecting to :", path);
+    console.log("options :", opts);
     this.log('stream', path, options);
     this.streamUrlFormatter.setParameters(opts);
 

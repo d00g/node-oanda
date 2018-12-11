@@ -10,7 +10,8 @@ streams.prototype = {
     options.accountId = account_id;
     options.instruments = util.encodeArray(instruments);
 
-    return this.core.stream(`/${this.core.apiVersion}/prices`, options);
+    var URL = this.core.apiVersion === 'v3' ? `/v3/accounts/${account_id}/pricing/stream` : `/${this.core.apiVersion}/prices`
+    return this.core.stream(URL, options);
   }
 };
 

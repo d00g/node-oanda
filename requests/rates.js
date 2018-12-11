@@ -9,16 +9,18 @@ rates.prototype = {
     options = util.define(options, {});
     options.account_id = account_id;
 
+    let URL = this.core.apiVersion === 'v3' ? `/v3/accounts/${account_id}/instruments` : `/${this.core.apiVersion}/instruments`;
     return this.core.request(
-      `/${this.core.apiVersion}/instruments`, 'GET', options);
+      URL, 'GET', options);
   },
 
   getCurrentPrices: function(instruments, options) {
     options = util.define(options, {});
     options.instruments = util.encodeArray(instruments);
 
+    let URL = this.core.apiVersion === 'v3' ? `/v3/accounts/${account_id}/instruments` : `/${this.core.apiVersion}/instruments`;
     return this.core.request(
-      `/${this.core.apiVersion}/instruments`, 'GET', options);
+      URL, 'GET', options);
   },
 
   retrieveInstrumentHistory: function(instrument, options) {

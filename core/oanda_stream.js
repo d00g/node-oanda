@@ -20,7 +20,7 @@ var success_stream = function(response) {
   response.on('end', this.disconnectFn);
 
   console.log();
-  console.log('OANDA Stream is connected');
+  console.log('OANDA Stream is connected: ', response.req.path);
   console.log();
 };
 
