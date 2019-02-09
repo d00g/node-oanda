@@ -35,11 +35,18 @@ fn.prototype = {
   },
 
   go: function() {
+
     var request = this.transport.request(
       this.options,
       successWrapper(this.successFn));
 
-    request.on('error', function(err) {
+    // let that = this;
+    // request.on('error', function(err) {
+    //   console.log(that.errorFn);
+    //   that.errorFn(err);
+    // });
+
+    request.on('error', (err) => {
       console.log(this.errorFn);
       this.errorFn(err);
     });
