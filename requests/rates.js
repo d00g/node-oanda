@@ -14,11 +14,11 @@ rates.prototype = {
       URL, 'GET', options);
   },
 
-  getCurrentPrices: function(instruments, options) {
+  getCurrentPrices: function(account_id, instruments, options) {
     options = util.define(options, {});
-    options.instruments = util.encodeArray(instruments);
+    options.instruments = instruments;
 
-    let URL = this.core.apiVersion === 'v3' ? `/v3/accounts/${account_id}/instruments` : `/${this.core.apiVersion}/instruments`;
+    let URL = this.core.apiVersion === 'v3' ? `/v3/accounts/${account_id}/pricing` : `/${this.core.apiVersion}/pricing`;
     return this.core.request(
       URL, 'GET', options);
   },
